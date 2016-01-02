@@ -1,26 +1,38 @@
-
-var name = "Chuwei";
-var formattedName = HTMLheaderName.replace("%data%",name);
-var role = "Web Learner";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-// HTMLheaderName.replace("%data%",formattedName);
-// HTMLheaderRole.replace("%data%",formattedRole);
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
+"use strict";
 
 var bio = {
 	"name" : "Chuwei",
 	"role" : "Web Learner",
-	"welcomeMessage":"Hello this is the second project!",
 	"contacts": {
 		"email" : "123@gmail.com",
 		"mobile" : "123-456-7890",
 		"location" : "Austin"
-	}, 
+	},
+	"welcomeMessage":"Hello this is the second project!",
 	"skills" : ["web development", "graphic design","video editing","teaching","3D modeling"],
-	"picture" : "../images/profilepic.jpg"
-}
+	"pictureURL" : "images/profilepic.jpg"
+};
+var formattedName = HTMLheaderName.replace("%data%",bio.name);
+var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
+var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
+var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+var formattedSkills = HTMLskills.replace("%data%",bio.skills);
+var formattedImage = HTMLbioPic.replace("%data%",bio.pictureURL);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedImage);
+$("#header").append(formattedMsg);
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+$("#header").append(formattedLocation);
+$("#header").append(formattedSkills);
+
+
+
+
 
 var education = {
 	"schools" : [ 
@@ -45,13 +57,13 @@ var education = {
 		"school" : "Udacity",
 		"date" : "November, 2015"
 	},
-	{	
+	{
 		"title" : "Javascript Basics",
 		"school" : "Udacity",
 		"date" : "December, 2015"
 	}
 	]
-}
+};
 
 var work = {
 	"jobs" : [
@@ -69,7 +81,7 @@ var work = {
 		"description" : "teach pre-K and K classes, prepare lesson plans and design class materials"
 	}
 	]
-}
+};
 function displayWork(){
 	for (job in work.jobs) {
 		$("#workExperience").append(HTMLworkStart);
@@ -84,12 +96,14 @@ function displayWork(){
 		$(".work-entry:last").append(formattedDates);
 
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-		$(".work-entry:last").append(formattedDescription);9
+		$(".work-entry:last").append(formattedDescription);
 
 
 	}
 }
 displayWork();
+
+
 // var education = {};
 // education["name"] = "UT Austin";
 // education["years"] = "2011-2013";
@@ -132,7 +146,7 @@ var projects = {
 		"image" : ["images/197x148.gif", "images/197x148.gif"]
 	}
 	]
-}
+};
 // $("#main").append(work["position"]);
 // $("#main").prepend(education["schools"][0].name);
 // $("#main").append(projects.project[1].image);
@@ -140,7 +154,7 @@ var projects = {
 // $("#header").append(bio["skills"]);
 
 if(bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
+$("#header").append(HTMLskillsStart);
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
 	$("#skills").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
