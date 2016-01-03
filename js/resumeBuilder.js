@@ -26,6 +26,7 @@ bio.display_contacts = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts["email"]);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
+	var formatted
 
 	$("#topContacts").append(formattedMobile);
 	$("#topContacts").append(formattedEmail);
@@ -172,12 +173,39 @@ var education = {
 	{
 		"title" : "Intro to HTML and CSS",
 		"school" : "Udacity",
-		"date" : "November, 2015"
+		"dates" : "November, 2015"
 	},
 	{
 		"title" : "Javascript Basics",
 		"school" : "Udacity",
-		"date" : "December, 2015"
+		"dates" : "December, 2015"
 	}
 	]
 }
+
+education.display = function(){
+	for(var school in education.schools){
+		$("#education").append(HTMLschoolStart);
+		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
+		// $(".education-entry:last").append(formattedName);
+		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+		var schoolTitle = formattedName + formattedDegree;
+		$(".education-entry:last").append(schoolTitle);
+		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+		$(".education-entry:last").append(formattedLocation);
+		var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].years);
+		$(".education-entry:last").append(formattedDates);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		$(".education-entry:last").append(formattedMajor);
+	}
+	$("#education").append(HTMLonlineClasses);
+	for (var onlinecourse in education.onlineCourses){
+		$("#education").append(HTMLschoolStart);
+		var onlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlinecourse].title);
+		$(".education-entry:last").append(onlineTitle);
+	}
+
+}
+
+education.display();
+
