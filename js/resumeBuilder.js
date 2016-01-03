@@ -11,58 +11,88 @@ var bio = {
 	"welcomeMessage":"Hello this is the second project!",
 	"skills" : ["web development", "graphic design","video editing","teaching","3D modeling"],
 	"pictureURL" : "images/profilepic.jpg"
-};
-var formattedName = HTMLheaderName.replace("%data%",bio.name);
-var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
-var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
-var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
-var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-// var formattedSkills = HTMLskills.replace("%data%",bio.skills);
-var formattedImage = HTMLbioPic.replace("%data%",bio.pictureURL);
-
-
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-$("#header").append(formattedImage);
-$("#header").append(formattedMsg);
-$("#header").append(formattedMobile);
-$("#header").append(formattedEmail);
-$("#header").append(formattedLocation);
-// $("#header").append(formattedSkills);
-
-if(bio.skills.length > 0) {
-$("#header").append(HTMLskillsStart);
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%" , bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-	$("#skills").append(formattedSkill);
-
-
 }
 
+bio.display_name = function(){
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+	$("#header").prepend(formattedRole);
+	$("#header").prepend(formattedName);
+	$("#header").append(formattedPic);
+}
 
+bio.display_contacts = function() {
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts["email"]);
+	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
+
+	$("#topContacts").append(formattedMobile);
+	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedLocation);
+}
+
+// var formattedName = HTMLheaderName.replace("%data%",bio.name);
+// var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
+// var formattedEmail = HTMLemail.replace("%data%",bio.contacts.email);
+// var formattedMobile = HTMLmobile.replace('%data%',bio.contacts.mobile);
+// var formattedLocation = HTMLlocation.replace("%data%",bio.contacts.location);
+// var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+// var formattedImage = HTMLbioPic.replace("%data%",bio.pictureURL);
+
+// $("#header").prepend(formattedRole);
+// $("#header").prepend(formattedName);
+// $("#header").append(formattedImage);
+// $("#header").append(formattedMsg);
+// $("#header").append(formattedMobile);
+// $("#header").append(formattedEmail);
+// $("#header").append(formattedLocation);
+
+bio.display_skills= function() {
+	if (bio.skills.length > 0) {
+		$("#header").append(HTMLskillsStart);
+		for (skill in bio.skills) {
+			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
+			console.log(skill);
+			$("#skills").append(formattedSkill);
+		};
+	}
+}
+
+bio.display_name();
+bio.display_contacts();
+bio.display_skills();
+
+var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+$("#header").append(formattedMsg);
+
+// if(bio.skills.length > 0) {
+// $("#header").append(HTMLskillsStart);
+// 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+// 	$("#skills").append(formattedSkill);
+// 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+// 	$("#skills").append(formattedSkill);
+// 	formattedSkill = HTMLskills.replace("%data%" , bio.skills[2]);
+// 	$("#skills").append(formattedSkill);
+// 	formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+// 	$("#skills").append(formattedSkill);
+// }
 
 var education = {
 	"schools" : [ 
 	{
-		"name" : "UT Austin",
-		"location" : "Austin",
-		"degree" : "Master of Education",
-		"major" : "Curriculum and Instruction",
-		"years" : "2011-2013"
+		"name" : "Name1",
+		"location" : "Location1",
+		"degree" : "Degree1",
+		"major" : "Major1",
+		"years" : "Year1-Year2"
 	},
 	{
-		"name" : "NTU",
-		"location" : "Taiwan",
-		"degree" : "Bachelor of Arts",
-		"major" : ["Languages and Literature","Political Science"],
-		"years" : "2007-2011"
+		"name" : "Name2",
+		"location" : "Location2",
+		"degree" : "Degree2",
+		"major" : ["Major2","Major3"],
+		"years" : "Year3-Year4"
 	}
 	],
 	"onlineCourses" : [
@@ -82,46 +112,23 @@ var education = {
 var work = {
 	"jobs" : [
 	{
-		"employer" : "CWM",
-		"title" : "teacher",
+		"employer" : "Employer1",
+		"title" : "Title1",
 		"location" : "Austin",
 		"date" : "June, 2014 - present",
-		"description" : "teach children aged 2-6 Mandarin Chinese and design and maintain school websites"
+		"description" : "Description1"
 	},{
-		"employer" : "Austin Chinese School",
-		"title" : "teacher",
+		"employer" : "Employer2",
+		"title" : "Title2",
 		"location" : "Austin",
 		"date" : "August, 2012 - May, 2014",
-		"description" : "teach pre-K and K classes, prepare lesson plans and design class materials"
+		"description" : "Description2"
 	}
 	]
 }
 
-// work.display = function(){
-// 	for (job in work.jobs) {
-// 		if(work.jobs.hasOwnProperty(job)){
-// 			console.log(work.jobs[job]);
-// 		}
-// 		$("#workExperience").append(HTMLworkStart);
 
-// 		var formattedEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
-// 		var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
-// 		var formattedEmployerTitle = formattedEmployer + formattedTitle;
-// 		$(".work-entry:last").append(
-// 			formattedEmployerTitle);
-
-// 		var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-// 		$(".work-entry:last").append(formattedDates);
-
-// 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-// 		$(".work-entry:last").append(formattedDescription);
-
-
-// 	}
-// }
-// work.display();
 work.display = function() {
-
 	for (job in work.jobs) {
 		// creat new div for work experience
 		$("#workExperience").append(HTMLworkStart);
@@ -145,31 +152,6 @@ work.display = function() {
 
 work.display();
 
-// var education = {};
-// education["name"] = "UT Austin";
-// education["years"] = "2011-2013";
-// education["city"] = "Austin";
-
-// var education = {
-// 	"ut" : {
-// 		"name" : "UT Austin",
-// 		"major" : "Education",
-// 		"years" : "2011-2013"
-// 	},
-// 	"ntu" : {
-// 		"name" : "NTU",
-// 		"major" : "Languages and Literature",
-// 		"years" : "2007-2011"
-// 	},
-// 	"udacity" : {
-// 		"name" : "Udacity",
-// 		"major" : "Front End Nano Degree Program",
-// 		"years" :"2015"
-// 	}
-// } 
-
-
-
 var projects = {
 	"project" : [
 	{
@@ -192,14 +174,9 @@ var projects = {
 displayProjects = function(){
 	for (project in projects.project){
 		$("#projects").append(HTMLprojectStart);
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[project].dates);
-		$(".project-entry:last").append(formattedDates);
-		var formattedDescription = HTMLprojectDescription.replace("%data%",projects.project)
-		}
+	var formattedTitle = HTMLprojectTitle.replace("%data%", projects.project[project].dates);
+	$(".project-entry:last").append(formattedDates);
+	var formattedDescription = HTMLprojectDescription.replace("%data%",projects.project)
+	}
 }
 displayProjects();
-// $("#main").append(work["position"]);
-// $("#main").prepend(education["schools"][0].name);
-// $("#main").append(projects.project[1].image);
-// $("#topContacts").append(bio["contacts"][0]);
-// $("#header").append(bio["skills"]);
