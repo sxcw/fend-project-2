@@ -44,7 +44,7 @@ bio.display_skills= function() {
 		for (var skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			console.log(skill);
-			$("#skills").append(formattedSkill);
+			$("#header").append(formattedSkill);
 		}
 	}
 }
