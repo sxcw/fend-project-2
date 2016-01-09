@@ -6,6 +6,7 @@ var bio = {
 	"contacts": {
 		"email" : "123@gmail.com",
 		"mobile" : "123-456-7890",
+		"github" : "mygithub",
 		"location" : "Austin"
 	},
 	"welcomeMessage":"Hello this is the second project!",
@@ -25,10 +26,12 @@ bio.display_name = function(){
 bio.display_contacts = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts["email"]);
+	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts["github"]);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
 
 	$("#topContacts").append(formattedMobile);
 	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedGithub);
 	$("#topContacts").append(formattedLocation);
 }
 
@@ -42,7 +45,7 @@ bio.display_skills= function() {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			console.log(skill);
 			$("#skills").append(formattedSkill);
-		};
+		}
 	}
 }
 
