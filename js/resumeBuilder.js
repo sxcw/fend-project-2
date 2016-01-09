@@ -7,7 +7,8 @@ var bio = {
 		"email" : "123@gmail.com",
 		"mobile" : "123-456-7890",
 		"github" : "mygithub",
-		"location" : "Austin"
+		"twitter" : "mytwitter",
+		"location" : "Austin, Texas"
 	},
 	"welcomeMessage":"Hello this is the second project!",
 	"skills" : ["web development", "graphic design","video editing","teaching"],
@@ -27,10 +28,12 @@ bio.display_contacts = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts["email"]);
 	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts["github"]);
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts["twitter"]);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
 
 	$("#topContacts").append(formattedMobile);
 	$("#topContacts").append(formattedEmail);
+	$("#topContacts").append(formattedTwitter);
 	$("#topContacts").append(formattedGithub);
 	$("#topContacts").append(formattedLocation);
 }
@@ -59,13 +62,13 @@ var work = {
 	{
 		"employer" : "Employer1",
 		"title" : "Title1",
-		"location" : "Austin",
+		"location" : "Austin, Texas",
 		"dates" : "June, 2014 - present",
 		"description" : "Description1"
 	},{
 		"employer" : "Employer2",
 		"title" : "Title2",
-		"location" : "Austin",
+		"location" : "Austin, Texas",
 		"dates" : "August, 2012 - May, 2014",
 		"description" : "Description2"
 	}
