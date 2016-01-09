@@ -1,7 +1,10 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Montserrat', sans-serif;
 }
 .clearfix {
     overflow: auto;
@@ -13,7 +16,7 @@
     padding-right: 5%;
 }
 h1 {
-    font-size: 40px;
+    font-size: 3em;
     color: #F5A623;
     line-height: 48px;
     display: inline;
@@ -28,7 +31,7 @@ h2 {
 h3 {
     font-style: italic;
     font-size: 20px;
-    color: #000000;
+    color: #f6edfb;
     line-height: 22px;
 }
 h4 {
@@ -71,14 +74,21 @@ a {
     display: block;
 }
 .welcome-message {
-    font-style: italic;
-    font-size: 18px;
-    color: #F3F3F3;
+    font-size: 0.9em;
+    color: silver;
     line-height: 28px;
+    padding-top: 10px;
+    float: right;
+    margin-top: 10px;
+}
+.welcome-message::first-letter {
+    font-size: 200%;
 }
 #skillsH3 {
     color: #F5AE23;
     display: none;
+    padding-top: 30px;
+    padding-left: 30px;
 }
 .orange {
     background-color: #F5AE23;
@@ -103,6 +113,11 @@ a {
 #header {
     background-color: #484848;
 }
+
+.role {
+  color: silver;
+  margin-left: 10px;
+}
 .flex-box {
     display: -webkit-flex;
     display: flex;
@@ -122,9 +137,12 @@ ul {
 }
 .biopic {
     float: left;
-    padding: 10px;
-    width: 200px;
+    padding: 5px;
+    width: 120px;
     display: none;
+    border-radius: 50%;
+    margin-right: 30px;
+    border: 1px solid silver;
 }
 img {
     padding: 10px;
@@ -154,7 +172,7 @@ span {
 }
 @media only screen and (max-width: 900px) {
     .biopic {
-        width: 175px;
+        width: 120px;
     }
 }
 @media only screen and (max-width: 750px) {

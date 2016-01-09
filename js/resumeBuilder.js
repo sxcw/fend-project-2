@@ -10,7 +10,7 @@ var bio = {
 		"twitter" : "mytwitter",
 		"location" : "Austin, Texas"
 	},
-	"welcomeMessage":"Hello this is the second project!",
+	"welcomeMessage":"Hello this is the second project! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 	"skills" : ["web development", "graphic design","video editing","teaching"],
 	"pictureURL" : "images/profilepic.jpg"
 }
@@ -38,8 +38,7 @@ bio.display_contacts = function() {
 	$("#topContacts").append(formattedLocation);
 }
 
-var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-$("#header").append(formattedMsg);
+
 
 bio.display_skills= function() {
 	if (bio.skills.length > 0) {
@@ -47,7 +46,7 @@ bio.display_skills= function() {
 		for (var skill in bio.skills) {
 			var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 			console.log(skill);
-			$("#header").append(formattedSkill);
+			$("#skills").append(formattedSkill);
 		}
 	}
 }
@@ -55,6 +54,9 @@ bio.display_skills= function() {
 bio.display_name();
 bio.display_contacts();
 bio.display_skills();
+
+var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+$("#header").append(formattedMsg);
 
 
 var work = {
