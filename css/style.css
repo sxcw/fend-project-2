@@ -14,7 +14,24 @@ h1,h2,h3,h4,h5,h6{
 .project-entry {
     padding-left: 5%;
     padding-right: 5%;
+    padding-bottom:10px;
 }
+.project-entry a {
+    font-size: 1.5em;
+}
+.project-entry p{
+    font-size: 0.9em;
+    color: silver;
+    line-height: 28px;
+}
+.project-entry img{
+    border-radius: 50%;
+    width:170px;
+    margin: 10px 20px;
+    text-align: center;
+
+}
+
 h1 {
     font-size: 3em;
     color: #F5A623;
@@ -102,16 +119,25 @@ a {
 }
 .gray {
     background-color: #F3F3F3;
-    padding-bottom: 10px;
+    padding: 20px 0;
     clear: both;
 }
 .dark-gray {
     background-color: #4A4A4A;
 }
+.dark-gray-main {
+    padding: 20px 0;
+    clear: both;
+    
+}
+.dark-gray-main h2 {
+    color: #fff;
+}
 /* TODO: Replace with image later */
 
 #header {
     background-color: #484848;
+    border-bottom: 3px solid #F5AE23;
 }
 
 .role {
