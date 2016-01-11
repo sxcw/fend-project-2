@@ -24,10 +24,16 @@ h1,h2,h3,h4,h5,h6{
     color: silver;
     line-height: 28px;
 }
-.project-entry img{
+/*
+.project-image {
+    max-width: 100%;
+    display: inline-block;
+}*/
+.project-entry img {
     border-radius: 50%;
     width: 170px;
     margin: 10px 20px;
+    border: 1px solid silver;
     /*text-align: center;*/
 
 }
@@ -40,7 +46,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     color: #F5A623;
     line-height: 48px;
     display: inline;
@@ -210,23 +216,15 @@ span {
     padding-bottom: 100px;
 }
 
-@media only screen and (max-width: 1024px) {
-    /*#letsConnect {
-        margin-top: 5%;
-    }
-    #mapDiv {
-    padding-bottom: 15%;
-  }*/
+/* responsive */
+@media only screen and (min-width: 750px) {
+
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (min-width: 750px) {
+    #skillsH3,
     .biopic {
-        width: 120px;
+        display: block;
     }
-}
-@media only screen and (max-width: 750px) {
-    /*#letsConnect {
-        margin-top: 10%;
-    }*/
     .biopic {
         width: 150px;
     }
@@ -234,10 +232,8 @@ span {
         display: none;
     }
 }
-
-@media only screen and (min-width: 750px) {
-    #skillsH3,
+@media only screen and (min-width: 900px) {
     .biopic {
-        display: block;
+        width: 120px;
     }
 }

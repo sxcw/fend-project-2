@@ -103,7 +103,7 @@ var projects = {
 		"title" : "Project 1",
 		"dates" : "November, 2015",
 		"description" : "A website hosting all the Udacity projects.  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-		"images" : ["images/silvia300.jpg","images/silvia300.jpg","images/silvia300.jpg"]
+		"images" : ["images/silvia300.jpg","images/silvia300.jpg","images/silvia300.jpg","images/silvia300.jpg"]
 	},{
 
 		"title" : "Project 2",
@@ -118,16 +118,15 @@ projects.display = function(){
 	for (var project in projects.projects){
 		$("#projects").append(HTMLprojectStart);
 		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		$(".project-entry:last").append(formattedTitle);
 		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		$(".project-entry:last").append(formattedDates);
 		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-		$(".project-entry:last").append(formattedDescription);
-		// var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].image);
-		// $(".project-entry:last").append(formattedImage);
+		$(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription);
+		$(".project-entry:last").append(HTMLprojectImageStart);
+		
 		for (var image in projects.projects[project].images){
 			var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
-			$(".project-entry:last").append(formattedImage);
+
+			$(".project-image-container").append(formattedImage);
 		}
 	}
 }
