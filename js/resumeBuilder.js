@@ -31,11 +31,12 @@ bio.display_contacts = function() {
 	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts["twitter"]);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
 
-	$("#topContacts").append(formattedMobile);
-	$("#topContacts").append(formattedEmail);
-	$("#topContacts").append(formattedTwitter);
-	$("#topContacts").append(formattedGithub);
-	$("#topContacts").append(formattedLocation);
+	$("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub,formattedLocation);
+	$("#footerContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub,formattedLocation);
+	// $("#topContacts").append(formattedEmail);
+	// $("#topContacts").append(formattedTwitter);
+	// $("#topContacts").append(formattedGithub);
+	// $("#topContacts").append(formattedLocation);
 }
 
 

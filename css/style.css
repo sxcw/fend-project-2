@@ -26,10 +26,17 @@ h1,h2,h3,h4,h5,h6{
 }
 .project-entry img{
     border-radius: 50%;
-    width:170px;
+    width: 170px;
     margin: 10px 20px;
-    text-align: center;
+    /*text-align: center;*/
 
+}
+.udacity {
+    color: #999999;
+    margin-top: 10px;
+}
+.education-entry a {
+    margin-bottom: 10px;
 }
 
 h1 {
@@ -191,27 +198,6 @@ span {
 #letsConnect {
     text-align: center;
 }
-@media only screen and (max-width: 1024px) {
-    #letsConnect {
-        margin-top: 5%;
-    }
-}
-@media only screen and (max-width: 900px) {
-    .biopic {
-        width: 120px;
-    }
-}
-@media only screen and (max-width: 750px) {
-    #letsConnect {
-        margin-top: 10%;
-    }
-    .biopic {
-        width: 150px;
-    }
-    .welcome-message {
-        display: none;
-    }
-}
 #map {
     display: block;
     height: 100%;
@@ -221,8 +207,34 @@ span {
 #mapDiv {
     height: 400px;
     width: 100%;
-    padding-bottom: 5%;
+    padding-bottom: 100px;
 }
+
+@media only screen and (max-width: 1024px) {
+    /*#letsConnect {
+        margin-top: 5%;
+    }
+    #mapDiv {
+    padding-bottom: 15%;
+  }*/
+}
+@media only screen and (max-width: 900px) {
+    .biopic {
+        width: 120px;
+    }
+}
+@media only screen and (max-width: 750px) {
+    /*#letsConnect {
+        margin-top: 10%;
+    }*/
+    .biopic {
+        width: 150px;
+    }
+    .welcome-message {
+        display: none;
+    }
+}
+
 @media only screen and (min-width: 750px) {
     #skillsH3,
     .biopic {
