@@ -11,7 +11,7 @@ var bio = {
 		"location" : "Austin, Texas"
 	},
 	"welcomeMessage":"Hello this is the second project! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
-	"skills" : ["web development", "graphic design","video editing","teaching"],
+	"skills" : ["web development", "graphic design","video editing","language education"],
 	"pictureURL" : "images/profilepic.jpg"
 }
 
