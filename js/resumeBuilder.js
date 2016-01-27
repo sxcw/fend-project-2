@@ -13,7 +13,7 @@ var bio = {
 	"welcomeMessage":"Hello this is the second project! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 	"skills" : ["web development", "graphic design","video editing","language education"],
 	"pictureURL" : "images/profilepic.jpg"
-}
+};
 
 bio.display_name = function(){
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
@@ -22,7 +22,7 @@ bio.display_name = function(){
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
 	$("#header").append(formattedPic);
-}
+};
 
 bio.display_contacts = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
@@ -37,7 +37,7 @@ bio.display_contacts = function() {
 	// $("#topContacts").append(formattedTwitter);
 	// $("#topContacts").append(formattedGithub);
 	// $("#topContacts").append(formattedLocation);
-}
+};
 
 
 
@@ -50,7 +50,7 @@ bio.display_skills= function() {
 			$("#skills").append(formattedSkill);
 		}
 	}
-}
+};
 
 bio.display_name();
 bio.display_contacts();
@@ -76,7 +76,7 @@ var work = {
 		"description" : "Description2"
 	}
 	]
-}
+};
 
 
 work.display = function() {
@@ -93,12 +93,12 @@ work.display = function() {
 		var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
 		$(".work-entry:last").append(formattedDescription);
 	}
-}
+};
 
 work.display();
 
 var projects = {
-	"projects" : [
+	"projectArray" : [
 	{
 		"title" : "Project 1",
 		"dates" : "November, 2015",
@@ -115,35 +115,36 @@ var projects = {
 };
 
 projects.display = function(){
-	for (var project in projects.projects){
+	for (var project in projects.projectArray){
 		$("#projects").append(HTMLprojectStart);
-		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-		var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projectArray[project].title);
+		var formattedDates = HTMLprojectDates.replace("%data%", projects.projectArray[project].dates);
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projectArray[project].description);
 		$(".project-entry:last").append(formattedTitle,formattedDates,formattedDescription);
 		$(".project-entry:last").append(HTMLprojectImageStart);
 		
-		for (var image in projects.projects[project].images){
-			var formattedImage = HTMLprojectImage.replace("%data%",projects.projects[project].images[image]);
+		for (var image in projects.projectArray[project].images){
+			var formattedImage = HTMLprojectImage.replace("%data%",projects.projectArray[project].images[image]);
 
-			$(".project-image-container").append(formattedImage);
+			$(".project-image-container:last").append(formattedImage);
 		}
 	}
-}
+};
+
 projects.display();
 
 var education = {
 	"schools" : [ 
 	{
 		"name" : "Name1",
-		"location" : "Location1",
+		"location" : "Austin, Texas",
 		"degree" : "Degree1",
 		"major" : "Major1",
 		"years" : "Year1-Year2"
 	},
 	{
 		"name" : "Name2",
-		"location" : "Location2",
+		"location" : "Taipei, Taiwan",
 		"degree" : "Degree2",
 		"major" : ["Major2","Major3"],
 		"years" : "Year3-Year4"
@@ -163,7 +164,7 @@ var education = {
 		"URL": "https://www.udacity.com/course/javascript-basics--ud804"
 	}
 	]
-}
+};
 
 education.display = function(){
 	for(var school in education.schools){
@@ -195,7 +196,7 @@ education.display = function(){
 
 	$("#education").append("<br>");
 
-}
+};
 
 education.display();
 
