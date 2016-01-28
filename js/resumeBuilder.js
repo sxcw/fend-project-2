@@ -4,44 +4,33 @@ var bio = {
 	"name" : "Chuwei",
 	"role" : "Front-end Developer",
 	"contacts": {
-		"email" : "123@gmail.com",
 		"mobile" : "123-456-7890",
+		"email" : "123@gmail.com",
 		"github" : "mygithub",
 		"twitter" : "mytwitter",
 		"location" : "Austin, Texas"
 	},
 	"welcomeMessage":"Hello this is the second project! Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
 	"skills" : ["web development", "graphic design","video editing","language education"],
-	"pictureURL" : "images/profilepic.jpg"
+	"biopic" : "images/profilepic.jpg"
 };
 
-bio.display_name = function(){
+bio.display = function(){
 	var formattedName = HTMLheaderName.replace("%data%", bio.name);
 	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-	var formattedPic = HTMLbioPic.replace("%data%", bio.pictureURL);
+	var formattedPic = HTMLbioPic.replace("%data%", bio.biopic);
 	$("#header").prepend(formattedRole);
 	$("#header").prepend(formattedName);
 	$("#header").append(formattedPic);
-};
 
-bio.display_contacts = function() {
 	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts["mobile"]);
 	var formattedEmail = HTMLemail.replace("%data%", bio.contacts["email"]);
 	var formattedGithub = HTMLgithub.replace("%data%",bio.contacts["github"]);
 	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts["twitter"]);
 	var formattedLocation = HTMLlocation.replace("%data%", bio.contacts["location"]);
-
 	$("#topContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub,formattedLocation);
 	$("#footerContacts").append(formattedMobile,formattedEmail,formattedTwitter,formattedGithub,formattedLocation);
-	// $("#topContacts").append(formattedEmail);
-	// $("#topContacts").append(formattedTwitter);
-	// $("#topContacts").append(formattedGithub);
-	// $("#topContacts").append(formattedLocation);
-};
 
-
-
-bio.display_skills= function() {
 	if (bio.skills.length > 0) {
 		$("#header").append(HTMLskillsStart);
 		for (var skill in bio.skills) {
@@ -50,15 +39,13 @@ bio.display_skills= function() {
 			$("#skills").append(formattedSkill);
 		}
 	}
+
+	var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
+	$("#header").append(formattedMsg);
+	
 };
 
-bio.display_name();
-bio.display_contacts();
-bio.display_skills();
-
-var formattedMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMessage);
-$("#header").append(formattedMsg);
-
+bio.display();
 
 var work = {
 	"jobs" : [
@@ -139,28 +126,28 @@ var education = {
 		"name" : "Name1",
 		"location" : "Austin, Texas",
 		"degree" : "Degree1",
-		"major" : "Major1",
-		"years" : "Year1-Year2"
+		"majors" : ["Major1","Major2"],
+		"dates" : "Year1-Year2"
 	},
 	{
 		"name" : "Name2",
 		"location" : "Taipei, Taiwan",
 		"degree" : "Degree2",
-		"major" : ["Major2","Major3"],
-		"years" : "Year3-Year4"
+		"majors" : ["Major3","Major4"],
+		"dates" : "Year3-Year4"
 	}
 	],
 	"onlineCourses" : [
 	{
 		"title" : "Intro to HTML and CSS",
 		"school" : "Udacity",
-		"dates" : "November, 2015",
+		"date" : "November, 2015",
 		"URL" : "https://www.udacity.com/course/intro-to-html-and-css--ud304"
 	},
 	{
 		"title" : "Javascript Basics",
 		"school" : "Udacity",
-		"dates" : "December, 2015",
+		"date" : "December, 2015",
 		"URL": "https://www.udacity.com/course/javascript-basics--ud804"
 	}
 	]
@@ -170,15 +157,14 @@ education.display = function(){
 	for(var school in education.schools){
 		$("#education").append(HTMLschoolStart);
 		var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-		// $(".education-entry:last").append(formattedName);
 		var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
 		var schoolTitle = formattedName + formattedDegree;
 		$(".education-entry:last").append(schoolTitle);
 		var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
 		$(".education-entry:last").append(formattedLocation);
-		var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].years);
+		var formattedDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
 		$(".education-entry:last").append(formattedDates);
-		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+		var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
 		$(".education-entry:last").append(formattedMajor);
 	}
 	$("#education").append(HTMLonlineClasses);
@@ -187,7 +173,7 @@ education.display = function(){
 		var onlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[onlinecourse].title);
 		$(".education-entry:last").append(onlineTitle);
 
-		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlinecourse].dates);
+		var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[onlinecourse].date);
 		$(".education-entry:last").append(onlineDates);
 
 		var onlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[onlinecourse].URL);
